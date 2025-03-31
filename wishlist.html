@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>BookNest - Zielona księgarnia</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <a href="index.html">
+            <div id="logo">
+                <h1>BookNest</h1>
+            </div>
+            </a>
+            <div id="search">
+                <form id="searchbar" action="">
+                    <input type="text" placeholder="Wyszukaj">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div id="user">
+                <a href="login.html">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <!-- <img src="img/user.png" alt="User profile picture" title="Zaloguj się""> -->
+                </a>
+            </div>
+        </header>
+
+
+
+        <nav>
+            <ul>
+                <a href="index.html"><li class="link">Strona główna</li></a>
+                <a href="wishlist.html"><li class="link">Lista życzeń</li></a>
+                <a href="basket.html"><li class="link">Koszyk</li></a>
+                <a href="management.html"><li class="link management-ui">Zarządzanie</li></a>
+                
+                <hr>
+
+                <li><h2>Filtry</h2></li>
+                
+                <li id="genres">
+                    <h3>Gatunki</h3>
+                    <ul>
+                        <li class="link" id="genre-fantasy">Fantasy</li>
+                        <li class="link" id="genre-scifi">Sci-fi</li>
+                        <li class="link" id="genre-romance">Romans</li>
+                    </ul>
+                </li>
+                
+                <li id="authors">
+                    <h3>Autor</h3>
+                    <form action="">
+                        <input type="text" placeholder="Jan Kowalski" name="author">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
+            </ul>            
+        </nav>
+
+
+
+        <main>
+            <div id="books">
+                <div class="book">
+                    <img src="img/book-covers/tree1_d.png" alt="okładka książki">
+                    <h2>Wish You Were Here</h2>
+                    <p>Pink Floyd</p>
+                    <p>Price</p>
+                    <div id="buttons">
+                        <button class="buy">Kup</button>
+                        <button class="wishlist-remove"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="img/book-covers/tree1_d.png" alt="okładka książki">
+                    <h2>We Wish You a Merry Christmas</h2>
+                    <p>We?</p>
+                    <p>Price</p>
+                    <div id="buttons">
+                        <button class="buy">Kup</button>
+                        <button class="wishlist-remove"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="img/book-covers/tree1_d.png" alt="okładka książki">
+                    <h2>Fish from the Wish</h2>
+                    <p>Some kind of fish</p>
+                    <p>Price</p>
+                    <div id="buttons">
+                        <button class="buy">Kup</button>
+                        <button class="wishlist-remove"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Stronę wykonali Magdalena Czyż, Karolina Turos, Nicole Roszak i Błażej Adamski.</p>
+        </footer>
+    </div>
+
+    <script src="https://kit.fontawesome.com/e44205ae58.js" crossorigin="anonymous"></script>   <!--font awesome icons kit-->
+    <script src="scripts/wishlist.js"></script>
+    <script src="scripts/management-ui.js"></script>
+</body>
+</html>
