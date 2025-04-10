@@ -83,12 +83,18 @@ footer{
 
     img{
         width: 100%;
-        height: 25vw;
-        object-fit: cover;
+        height: 30vw;
+        object-fit: fill;
     }
 
     h2{
-        margin-top: 10px;
+        margin-top: 15px;
+        font-size: 1.5em;
+    }
+
+    p:first-of-type{
+        font-size: 1.15em;
+        font-weight: bold;
     }
     #buttons{
         display: grid;
