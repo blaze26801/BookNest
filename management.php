@@ -29,7 +29,7 @@
                             <i class="fa-solid fa-user-tie"></i>
                             <div class="dropdown-content">
                                 <a href="profil.html">Ustawienia</a>
-                                <a href="#">Wyloguj</a>
+                                <a href="logout.php">Wyloguj</a>
                             </div>
                         </div>');
                 } else {
