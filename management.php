@@ -22,9 +22,20 @@
                 </form>
             </div>
             <div id="user">
-                <a href="login.html">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <!-- <img src="img/user.png" alt="User profile picture" title="Zaloguj się""> -->
+                <?php
+                if(isset($_COOKIE['loggedin'])) {
+                    echo('
+                        <div class="dropdown">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <div class="dropdown-content">
+                                <a href="profil.html">Ustawienia</a>
+                                <a href="#">Wyloguj</a>
+                            </div>
+                        </div>');
+                } else {
+                    echo('<a href="login.html"><i class="fa-solid fa-user-tie"></i></a>');
+                }
+                ?>
                 </a>
             </div>
         </header>
@@ -34,9 +45,9 @@
         <nav>
             <ul>
                 <a href="index.html"><li class="link">Strona główna</li></a>
-                <a href="wishlist.html"><li class="link">Lista życzeń</li></a>
-                <a href="basket.html"><li class="link">Koszyk</li></a>
-                <a href="management.html"><li class="link management-ui">Zarządzanie</li></a>
+                <a href="wishlist.php"><li class="link">Lista życzeń</li></a>
+                <a href="basket.php"><li class="link">Koszyk</li></a>
+                <a href="management.php"><li class="link management-ui">Zarządzanie</li></a>
                 
                 <hr>
 
