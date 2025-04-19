@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmień hasło</title>
+    <link rel="stylesheet" href="styles/style-profil.css" />
+</head>
+<body class="ciało">
+    <div class="container">
+        <aside>
+          <ul>
+            <li>Strona Główna</li>
+            <li><a href="profil.html">Dane użytkownika</a></li>
+            <li><a href="zmiana hasla.html">Zmień hasło</a></li>
+            <li><a href="platnosci log.html">Opcje Płatności</a></li>
+            <li><a href="ulubione log.html">Lista Życzeń</a></li>
+            <li><a href="historia log.html">Historia zakupów</a></li>
+          </ul>
+        </aside>
+    
+        <section class="kontent-zmiany">
+            <div class="ramka-hasla">
+              <h2>Zmień hasło</h2>
+              <form class="password-form" onsubmit="return validatePasswords(event)">
+                <label for="newPassword">Nowe hasło:</label>
+                <input type="password" id="newPassword" required />
+      
+                <label for="confirmPassword">Powtórz hasło:</label>
+                <input type="password" id="confirmPassword" required />
+      
+                <button type="submit">Zapisz</button>
+                <p id="message" class="message"></p>
+              </form>
+            </div>
+          </section>
+       
+    </div>
+    <script>
+       
+        const menuLinks = document.querySelectorAll('aside a');
+        const sections = document.querySelectorAll('.content > div');
+    
+        menuLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            // e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+    
+            sections.forEach(section => section.classList.add('hidden'));
+            target.classList.remove('hidden');
+          });
+        });
+        function validatePasswords(e) 
+        {
+      e.preventDefault();
+      const newPass = document.getElementById("newPassword").value;
+      const confirmPass = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      if (newPass !== confirmPass) {
+        message.textContent = "Hasła się nie zgadzają!";
+        message.style.color = "red";
+      } else {
+        message.textContent = "Hasło zostało zmienione.";
+        message.style.color = "green";
+      }}
+      </script>
+</body>
+</html>

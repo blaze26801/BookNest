@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmień hasło</title>
+    <link rel="stylesheet" href="styles/style-profil.css" />
+</head>
+<body class="ciało">
+    <div class="container">
+        <aside>
+          <ul>
+            <li>Strona Główna</li>
+            <li><a href="profil.html">Dane użytkownika</a></li>
+            <li><a href="zmiana hasla.html">Zmień hasło</a></li>
+            <li><a href="platnosci log.html">Opcje Płatności</a></li>
+            <li><a href="ulubione log.html">Lista Życzeń</a></li>
+            <li><a href="historia log.html">Historia zakupów</a></li>
+          </ul>
+        </aside>
+        <div id="platnosci-wrapper">
+          <div id="platnosci">
+            <div class="platnosci-lewa">
+              <h2>Opcje płatności</h2>
+              <p>Wybierz preferowaną metodę płatności, aby sfinalizować zamówienie.</p>
+            </div>
+            <div class="platnosci-prawa">
+              <div class="payment-options">
+                <label>
+                  <input id="Blik" type="radio" name="platnosc" checked />
+                  <span>Blik</span>
+                </label>
+                <label>
+                  <input id="PayPal" type="radio" name="platnosc" />
+                  <span>PayPal</span>
+                </label>
+                <label>
+                  <input id="karta" type="radio" name="platnosc" />
+                  <span>Karta Płatnicza</span>
+                </label>
+                <label>
+                  <input id="odbior" type="radio" name="platnosc" />
+                  <span>Płatność przy Odbiorze</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    <script>
+    
+        const menuLinks = document.querySelectorAll('aside a');
+        const sections = document.querySelectorAll('.content > div');
+    
+        menuLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            // e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+    
+            sections.forEach(section => section.classList.add('hidden'));
+            target.classList.remove('hidden');
+          });
+        });
+        
+      </script>
+</body>
+</html>

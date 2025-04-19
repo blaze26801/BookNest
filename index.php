@@ -21,8 +21,20 @@
                 </form>
             </div>
             <div id="user">
-                <a href="login.html">
-                    <i class="fa-solid fa-user-tie"></i>
+                <?php
+                if(isset($_COOKIE['loggedin'])) {
+                    echo('
+                        <div class="dropdown">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <div class="dropdown-content">
+                                <a href="profil.html">Ustawienia</a>
+                                <a href="#">Wyloguj</a>
+                            </div>
+                        </div>');
+                } else {
+                    echo('<a href="login.html"><i class="fa-solid fa-user-tie"></i></a>');
+                }
+                ?>
                 </a>
             </div>
         </header>

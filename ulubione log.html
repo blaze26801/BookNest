@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmień hasło</title>
+    <link rel="stylesheet" href="styles/style-profil.css" />
+</head>
+<body class="ciało">
+    <div class="container">
+        <aside>
+          <ul>
+            <li>Strona Główna</li>
+            <li><a href="profil.html">Dane użytkownika</a></li>
+            <li><a href="zmiana hasla.html">Zmień hasło</a></li>
+            <li><a href="platnosci log.html">Opcje Płatności</a></li>
+            <li><a href="ulubione log.html">Lista Życzeń</a></li>
+            <li><a href="historia log.html">Historia zakupów</a></li>
+          </ul>
+        </aside>
+        <div id="ulubione">
+            <h2>Tu będzie link do innej strony</h2>
+           
+          </div>
+        </section>
+      </div>
+    <script>
+        const menuLinks = document.querySelectorAll('aside a');
+        const sections = document.querySelectorAll('.content > div');
+    
+        menuLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            // e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+    
+            sections.forEach(section => section.classList.add('hidden'));
+            target.classList.remove('hidden');
+          });
+        });
+        
+      </script>
+</body>
+</html>
