@@ -1,0 +1,361 @@
+.ciało {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+  }
+  
+  header {
+    background: #1f1f1f;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  /* .search-btn {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-menu {
+    position: relative;
+  }
+  
+  .user-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dropdown a:hover {
+    background: #f0f0f0;
+  }
+  
+  .book-list {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #1f1f1f;
+  }
+  
+  .book-card {
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+  }
+  
+  .book-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .actions button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  } */
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  aside {
+    width: 200px;
+    background: #222;
+    color: white;
+    padding: 20px;
+  }
+  
+  aside ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  aside ul li {
+    margin-bottom: 15px;
+  }
+  
+  aside ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  aside ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  /* profil */
+  .form-user {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  /* profil */
+  .form-user input,
+  .form-user textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  /* profil */
+  .form-user button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+  }
+  /* profil */
+  .form-user button:hover {
+    background: #555;
+  }
+  /* profil */
+  .content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  /* profil */
+  .ramka {
+    background: white;
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    width: 100%;
+  }
+  /* profil */
+  .form-display-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  /* profil */
+  .user-data {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  }
+  /* profil */
+  .user-data p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  /* profil */
+  @media (max-width: 768px) {
+    .form-display-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .user-data {
+      width: 100%;
+    }
+  }
+  /* Płatności */
+  #platnosci {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .platnosci-lewa {
+    flex: 1;
+  }
+  
+  .platnosci-lewa h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+  }
+  
+  .platnosci-lewa p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .platnosci-prawa {
+    flex: 1;
+  }
+  
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .payment-options label {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .payment-options input[type="radio"] {
+    margin-right: 1rem;
+    accent-color: #3c82f6;
+  }
+  
+  .payment-options label:hover {
+    border-color: #3c82f6;
+    background-color: #eef4ff;
+  }
+  
+  .payment-options input[type="radio"]:checked + span {
+    font-weight: bold;
+  }
+  
+  
+  @media (max-width: 768px) {
+    #platnosci {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 2rem;
+    }
+  
+    .platnosci-lewa, .platnosci-prawa {
+      width: 100%;
+    }
+  }
+
+#platnosci-wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+ 
+  /*Zmiana hasla*/
+  .kontent-zmiany {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #f2f2f2;
+  }
+  .ramka-hasla {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  .password-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .password-form label {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  .password-form input {
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .password-form button {
+    margin-top: 25px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .password-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .message {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  /*Histori zakupów */
+  #historia{
+    background-color: #fefdfb;
+    flex-grow: 1;
+  }
+
+  #zdjeciehistoria {
+    height: 100vh;
+    margin: auto;
+    display: block;
+  }
