@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil użytkownika</title>
+  <link rel="stylesheet" href="styles/style-profil.css" />
+
+</head>
+<body class="ciało">
+  <div class="container">
+    <aside>
+      <ul>
+        <li><a href="index.php">Strona Główna</a></li>
+        <li><a href="profil.html">Dane użytkownika</a></li>
+        <li><a href="zmiana hasla.html">Zmień hasło</a></li>
+        <li><a href="platnosci log.html">Opcje Płatności</a></li>
+        <li><a href="wishlist.php">Lista Życzeń</a></li>
+        <li><a href="historia log.html">Historia zakupów</a></li>
+      </ul>
+    </aside>
+    
+    <section class="content">
+      
+      <div id="dane" class="ramka">
+        <h2>Dane użytkownika</h2>
+        <div class="form-display-wrapper">
+          
+          <form class="form-user" onsubmit="saveUserData(event)">
+            <label>Imię:</label>
+            <input type="text" id="inputImie" placeholder="Wpisz imię" />
+            <label>Nazwisko:</label>
+            <input type="text" id="inputNazwisko" placeholder="Wpisz nazwisko" />
+            <label>Adres wysyłki:</label>
+            <textarea id="inputAdres" placeholder="Wpisz adres"></textarea>
+            <button type="submit">Zapisz dane</button>
+          </form>
+          
+          <div class="user-data">
+            <p><strong>Imię:</strong> <span id="savedImie">-</span></p>
+            <p><strong>Nazwisko:</strong> <span id="savedNazwisko">-</span></p>
+            <p><strong>Adres:</strong> <span id="savedAdres">-</span></p>
+          </div>
+        </div>
+      </div>
+  <script>
+    function saveUserData(e) {
+      e.preventDefault();
+
+      const imie = document.getElementById('inputImie').value;
+      const nazwisko = document.getElementById('inputNazwisko').value;
+      const adres = document.getElementById('inputAdres').value;
+
+      document.getElementById('savedImie').textContent = imie || '-';
+      document.getElementById('savedNazwisko').textContent = nazwisko || '-';
+      document.getElementById('savedAdres').textContent = adres || '-';
+    }
+
+    const menuLinks = document.querySelectorAll('aside a');
+    const sections = document.querySelectorAll('.content > div');
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        // e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+
+        sections.forEach(section => section.classList.add('hidden'));
+        target.classList.remove('hidden');
+      });
+    });
+    
+  </script>
+</body>
+</html>
