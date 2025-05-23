@@ -1,12 +1,12 @@
 
-document.addEventListener('DOMContentLoaded', function () {
+function createAddToCartListeners() {
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', function () {
             const bookElement = button.closest('.book');
             const title = bookElement.querySelector('h2')?.innerText || '';
             const author = bookElement.querySelector('p')?.innerText || '';
             const image = bookElement.querySelector('img')?.getAttribute('src') || '';
-            const price = bookElement.querySelector('p:last-of-type')?.innerText || '';
+            const price = bookElement.querySelector('.price')?.innerText || '';
 
             const book = { title, author, image, price };
 
@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Dodano do koszyka!');
         });
     });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    createAddToCartListeners()
 });
 
 
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const bookTitle = bookElement.querySelector('h2') ? bookElement.querySelector('h2').innerText : 'Brak tytułu';
             const bookAuthor = bookElement.querySelector('p') ? bookElement.querySelector('p').innerText : 'Brak autora';
             const bookImage = bookElement.querySelector('img') ? bookElement.querySelector('img').src : 'Brak obrazka';
-            const bookPrice = bookElement.querySelector('p:last-child') ? bookElement.querySelector('p:last-child').innerText : 'Brak ceny';
+            const bookPrice = bookElement.querySelector('.price') ? bookElement.querySelector('.price').innerText : 'Brak ceny';
 
             const book = {
                 title: bookTitle,

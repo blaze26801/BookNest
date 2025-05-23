@@ -99,7 +99,7 @@
                         echo '<h2>' . htmlspecialchars($row["title"]) . '</h2>';
                         echo '<p>' . htmlspecialchars($row["author"]) . '</p>';
                         echo '<p>' . htmlspecialchars($row["category"]) . '</p>';
-                        echo '<p>' . number_format($row["price"], 2) . ' zł</p>';
+                        echo '<p class="price">' . number_format($row["price"], 2) . ' zł</p>';
                         echo '<div id="buttons">';
                         echo '<button class="add-to-cart">Kup</button>';
                         echo '<button class="wishlist-add"><i class="fa-solid fa-heart"></i></button>';

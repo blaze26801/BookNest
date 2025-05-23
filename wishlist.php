@@ -79,6 +79,7 @@
             <div id="books"></div>
         </main>
         
+        <script src="scripts/basket_backend.js"></script>
         <script>
             // Funkcja do ładowania książek z listy życzeń z localStorage
             window.onload = function() {
@@ -97,9 +98,9 @@
                 <img src="${book.image}" alt="okładka książki">
                 <h2>${book.title}</h2>
                 <p>${book.author}</p>
-                <p>${book.price}</p>
+                <p class="price">${book.price}</p>
                 <div id="buttons">
-                    <button class="buy">Kup</button>
+                    <button class="add-to-cart">Kup</button>
                     <button class="wishlist-remove"><i class="fa-solid fa-trash"></i></button>
                 </div>
             `;
@@ -121,6 +122,7 @@
             });
         });
     }
+    createAddToCartListeners()
 };
 
         </script>
