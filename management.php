@@ -44,7 +44,7 @@
 
         <nav>
             <ul>
-                <a href="index.html"><li class="link">Strona główna</li></a>
+                <a href="index.php"><li class="link">Strona główna</li></a>
                 <a href="wishlist.php"><li class="link">Lista życzeń</li></a>
                 <a href="basket.php"><li class="link">Koszyk</li></a>
                 <a href="management.php"><li class="link management-ui">Zarządzanie</li></a>
