@@ -15,7 +15,7 @@
                 </div>
             </a>
             <div id="search">
-                <form id="searchbar" action="wishlist.php" method="get">
+                <form id="searchbar" action="index.php" method="get">
                     <input type="text" name="search" placeholder="Wyszukaj książkę" 
                         value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" />
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -23,7 +23,7 @@
             </div>
             <div id="user">
                 <?php
-                if(isset($_COOKIE['loggedin'])) {
+                if (isset($_COOKIE['loggedin'])) {
                     echo '
                         <div class="dropdown">
                             <i class="fa-solid fa-user-tie"></i>
@@ -53,75 +53,84 @@
                 <li id="genres">
                     <h3>Gatunki</h3>
                     <ul>
-                        <li class="link"><a href="wishlist.php?category=1<?php echo isset($_GET['search']) ? '&search=' . urlencode($_GET['search']) : ''; ?><?php echo isset($_GET['author']) ? '&author=' . urlencode($_GET['author']) : ''; ?>">Fantasy</a></li>
-                        <li class="link"><a href="wishlist.php?category=2<?php echo isset($_GET['search']) ? '&search=' . urlencode($_GET['search']) : ''; ?><?php echo isset($_GET['author']) ? '&author=' . urlencode($_GET['author']) : ''; ?>">Sci-fi</a></li>
-                        <li class="link"><a href="wishlist.php?category=3<?php echo isset($_GET['search']) ? '&search=' . urlencode($_GET['search']) : ''; ?><?php echo isset($_GET['author']) ? '&author=' . urlencode($_GET['author']) : ''; ?>">Romans</a></li>
+                        <li class="link"><a href="index.php?category=1">Fantasy</a></li>
+                        <li class="link"><a href="index.php?category=2">Sci-fi</a></li>
+                        <li class="link"><a href="index.php?category=3">Romans</a></li>
                     </ul>
                 </li>
 
                 <li id="authors">
                     <h3>Autor</h3>
-                    <form action="wishlist.php" method="get">
+                    <form action="index.php" method="get">
                         <input type="text" placeholder="Jan Kowalski" name="author" 
                             value="<?php echo isset($_GET['author']) ? htmlspecialchars($_GET['author']) : ''; ?>" />
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </li>
-            </ul>
+            </ul>            
         </nav>
 
         <main>
-            <div id="books"></div>
-        </main>
+            <div id="books">
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bookstore");
+                $conn->set_charset("utf8");
 
-        <script src="scripts/basket_backend.js"></script>
-        <script>
-            window.onload = function() {
-                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-                const booksContainer = document.getElementById('books');
-
-                if (wishlist.length === 0) {
-                    booksContainer.innerHTML = '<p>Brak książek na liście życzeń.</p>';
-                    return;
+                if ($conn->connect_error) {
+                    echo "<p>Błąd połączenia z bazą danych.</p>";
+                    exit();
                 }
 
-                wishlist.forEach(book => {
-                    const bookElement = document.createElement('div');
-                    bookElement.classList.add('book');
+                $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                $author = isset($_GET['author']) ? $conn->real_escape_string($_GET['author']) : '';
+                $category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
 
-                    bookElement.innerHTML = `
-                        <img src="${book.image}" alt="okładka książki">
-                        <h2>${book.title}</h2>
-                        <p>${book.author}</p>
-                        <p class="price">${book.price}</p>
-                        <div id="buttons">
-                            <button class="add-to-cart">Kup</button>
-                            <button class="wishlist-remove"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                    `;
+                $sql = "SELECT books.title, books.author, books.price, books.image, categories.name AS category
+                        FROM books
+                        JOIN categories ON books.category_id = categories.id";
 
-                    booksContainer.appendChild(bookElement);
-                });
+                $whereClauses = [];
 
-                document.querySelectorAll('.wishlist-remove').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const bookElement = button.closest('.book');
-                        const bookTitle = bookElement.querySelector('h2').innerText;
+                if (!empty($search)) {
+                    $whereClauses[] = "books.title LIKE '%$search%'";
+                }
 
-                        wishlist = wishlist.filter(book => book.title !== bookTitle);
-                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-                        bookElement.remove();
+                if (!empty($author)) {
+                    $whereClauses[] = "books.author LIKE '%$author%'";
+                }
 
-                        alert('Książka została usunięta z listy życzeń.');
-                        if (wishlist.length === 0) {
-                            booksContainer.innerHTML = '<p>Brak książek na liście życzeń.</p>';
-                        }
-                    });
-                });
+                if ($category > 0) {
+                    $whereClauses[] = "books.category_id = $category";
+                }
 
-                createAddToCartListeners();
-            };
-        </script>
+                if (count($whereClauses) > 0) {
+                    $sql .= " WHERE " . implode(" AND ", $whereClauses);
+                }
+
+                $result = $conn->query($sql);
+
+                if ($result && $result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="book">';
+                        echo '<img src="img/book-covers/' . htmlspecialchars($row["image"]) . '" alt="okładka książki">';
+                        echo '<h2>' . htmlspecialchars($row["title"]) . '</h2>';
+                        echo '<p>' . htmlspecialchars($row["author"]) . '</p>';
+                        echo '<p>' . htmlspecialchars($row["category"]) . '</p>';
+                        echo '<p class="price">' . number_format($row["price"], 2) . ' zł</p>';
+                        echo '<div id="buttons">';
+                        echo '<button class="add-to-cart">Kup</button>';
+                        echo '<button class="wishlist-add"><i class="fa-solid fa-heart"></i></button>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo "<p>Nie znaleziono książek.</p>";
+                }
+
+                $conn->close();
+                ?>
+            </div>
+        </main>
 
         <footer>
             <p>Stronę wykonali Magdalena Czyż, Karolina Turos, Nicole Roszak i Błażej Adamski.</p>
@@ -130,5 +139,6 @@
 
     <script src="https://kit.fontawesome.com/e44205ae58.js" crossorigin="anonymous"></script>
     <script src="scripts/management-ui.js"></script>
+    <script src="scripts/basket_backend.js"></script>
 </body>
 </html>
