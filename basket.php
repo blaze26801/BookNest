@@ -9,17 +9,11 @@
 <body>
     <div id="container">
         <header>
-            <a href="index.html">
+            <a href="index.php">
             <div id="logo">
                 <h1>BookNest</h1>
             </div>
             </a>
-            <div id="search">
-                <form id="searchbar" action="">
-                    <input type="text" placeholder="Wyszukaj">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
             <div id="user">
                 <?php
                 if(isset($_COOKIE['loggedin'])) {
@@ -45,29 +39,11 @@
             <ul>
                 <a href="index.php"><li class="link">Strona główna</li></a>
                 <a href="wishlist.php"><li class="link">Lista życzeń</li></a>
-                <a href="basket.php"><li class="link">Koszyk</li></a>
+                <a href="basket.php"><li class="link current">Koszyk</li></a>
                 <a href="management.php"><li class="link management-ui">Zarządzanie</li></a>
                 
                 <hr>
 
-                <li><h2>Filtry</h2></li>
-                
-                <li id="genres">
-                    <h3>Gatunki</h3>
-                    <ul>
-                        <li class="link" id="genre-fantasy">Fantasy</li>
-                        <li class="link" id="genre-scifi">Sci-fi</li>
-                        <li class="link" id="genre-romance">Romans</li>
-                    </ul>
-                </li>
-                
-                <li id="authors">
-                    <h3>Autor</h3>
-                    <form action="">
-                        <input type="text" placeholder="Jan Kowalski" name="author">
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </li>
             </ul>            
         </nav>
 

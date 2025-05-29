@@ -28,6 +28,9 @@ nav{
     color: white;
     padding: 10px;
 }
+.current{
+    background-color: #444;
+}
 main{
     grid-column: span 9;
     background-color: #333;
@@ -190,7 +193,7 @@ h1{
     color: white;
     text-decoration: none;
 }
-a{
+a, a:visited{
     text-decoration: none;
 }
 

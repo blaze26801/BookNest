@@ -41,7 +41,7 @@
 
         <nav>
             <ul>
-                <a href="index.php"><li class="link">Strona główna</li></a>
+                <a href="index.php"><li class="link current">Strona główna</li></a>
                 <a href="wishlist.php"><li class="link">Lista życzeń</li></a>
                 <a href="basket.php"><li class="link">Koszyk</li></a>
                 <a href="management.php"><li class="link management-ui">Zarządzanie</li></a>
@@ -53,9 +53,9 @@
                 <li id="genres">
                     <h3>Gatunki</h3>
                     <ul>
-                        <li class="link"><a href="index.php?category=1">Fantasy</a></li>
-                        <li class="link"><a href="index.php?category=2">Sci-fi</a></li>
-                        <li class="link"><a href="index.php?category=3">Romans</a></li>
+                        <a href="index.php?category=1"><li class="link">Fantasy</li></a>
+                        <a href="index.php?category=2"><li class="link">Sci-fi</li></a>
+                        <a href="index.php?category=3"><li class="link">Romans</li></a>
                     </ul>
                 </li>
 
